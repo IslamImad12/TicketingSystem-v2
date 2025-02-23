@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
-
+import dash from '../../images/dash.png'
 export default function LandingPage() {
   return (
     <>
@@ -37,7 +37,7 @@ export default function LandingPage() {
 
       {/* صورة متداخلة بين القسمين */}
       <div className="relative flex justify-center ">
-        <img src="../../../public/images/dash.png" className="w-1/2 mx-auto absolute -top-40 shadow-lg rounded-lg" alt="Dashboard" />
+        <img src={dash} className="w-1/2 mx-auto absolute -top-40 shadow-lg rounded-lg" alt="Dashboard" />
       </div>
 
       {/* قسم العمليات */}
