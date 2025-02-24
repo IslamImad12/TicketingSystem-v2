@@ -97,14 +97,14 @@ export default function Home() {
           {activePage === "manager" && (
             <div>
               <h2 className="text-xl font-bold">Add Manager</h2>
-              <p>Here you can add new managers.</p>
+              <p>Add Manager.</p>
             </div>
           )}
 
           {activePage === "records" && (
             <div>
               <h2 className="text-xl font-bold">Add Record</h2>
-              <p>Here you can add new records.</p>
+              <p>Add Record.</p>
             </div>
           )}
 

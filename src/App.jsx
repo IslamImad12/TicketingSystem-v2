@@ -11,7 +11,7 @@ import Register from './Components/Register/Register';
 
 let routers = createBrowserRouter([
   {path:'' , element:<Layout/> , children:[
-    {index: true, element:<Home/>},
+    {index: true, element:<LandingPage/>},
     {path:'/home' , element:<Home/>},
     {path:'/profile' , element:<Profile/>},
     {path:'/navbar' , element:<Navbar/>},
