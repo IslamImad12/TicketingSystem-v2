@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Sidebar } from "react-pro-sidebar";
+import  { useState } from "react";
+// import { Sidebar } from "react-pro-sidebar";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Tickets from "../Tickets/Tickets";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [activePage, setActivePage] = useState("dashboard");
@@ -49,10 +50,10 @@ export default function Home() {
               </button>
             </li>
             <li>
-              <a href="/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <Link to="/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <ExitToAppIcon />
                 <span className="ms-3">Sign out</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
