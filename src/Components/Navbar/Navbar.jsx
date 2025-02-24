@@ -1,6 +1,7 @@
 // import React, { useState } from 'react';
 import logo from '../../images/logo.png';
 import admin from '../../images/admin4.png';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -14,9 +15,9 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="/main" className="text-lg font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Home</a>
-            <a href="/home" className="text-lg font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Dashbord</a>
-            <a href="/profile"><img className="w-8 h-8 rounded-full" src={admin} alt="user photo" /></a>
+            <Link to="/main" className="text-lg font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Home</Link>
+            <Link to="/home" className="text-lg font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Dashbord</Link>
+            <Link to="/profile"><img className="w-8 h-8 rounded-full" src={admin} alt="user photo" /></Link>
           </div>
         </div>
       </div>
