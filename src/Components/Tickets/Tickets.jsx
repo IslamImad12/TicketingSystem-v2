@@ -62,7 +62,7 @@ export default function Tickets() {
           ))}
         </select>
         <Link
-          to='/NewTicket' 
+          to='/AddTicket' 
           className="text-white px-4 py-3 rounded-lg flex items-center gap-2"
           style={{ backgroundColor: '#03091E' }}
           onClick={addTicket}

@@ -8,9 +8,9 @@ import Layout from './Components/Layout/Layout';
 import Login from './Components/Login/Login';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Register from './Components/Register/Register';
-import NewTicket from './Components/newTicket/newTicket';
 import Record from './Components/Record/Record';
 import Manager from './Components/Manager/Manager';
+import AddTicket from './Components/AddTicket/AddTicket';
 
 
 let routers = createBrowserRouter([
@@ -22,7 +22,7 @@ let routers = createBrowserRouter([
     {path:'/login' , element:<Login/>},
     {path:'/register' , element:<Register/>},
     {path:'/main' , element:<LandingPage/>},
-    {path:'/NewTicket' , element:<NewTicket/>},
+    {path:'/AddTicket' , element:<AddTicket/>},
     {path:'/Record' , element:<Record/>},
     {path:'/Manager' , element:<Manager/>},
   ]},
