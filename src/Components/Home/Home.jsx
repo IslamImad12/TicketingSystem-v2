@@ -7,6 +7,8 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Tickets from "../Tickets/Tickets";
 import { Link } from "react-router-dom";
+import Record from "../Record/Record";
+import Manager from "../Manager/Manager";
 
 export default function Home() {
   const [activePage, setActivePage] = useState("dashboard");
@@ -14,50 +16,71 @@ export default function Home() {
   return (
     <>
       {/* Sidebar */}
-      <aside id="logo-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700">
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-          <ul className="space-y-2 font-medium">
-            <li>
-              <button 
-                onClick={() => setActivePage("dashboard")}
-                className={`flex w-full items-center p-2 rounded-lg group ${activePage === "dashboard" ? "bg-gray-300" : "hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-                <DashboardIcon />
-                <span className="ms-3">Dashboard</span>
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => setActivePage("tickets")}
-                className={`flex w-full items-center p-2 rounded-lg group ${activePage === "tickets" ? "bg-gray-300" : "hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-                <ConfirmationNumberIcon />
-                <span className="ms-3">All Tickets</span>
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => setActivePage("manager")}
-                className={`flex w-full items-center p-2 rounded-lg group ${activePage === "manager" ? "bg-gray-300" : "hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-                <ManageAccountsIcon />
-                <span className="ms-3">Add Manager</span>
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => setActivePage("records")}
-                className={`flex w-full items-center p-2 rounded-lg group ${activePage === "records" ? "bg-gray-300" : "hover:bg-gray-100 dark:hover:bg-gray-700"}`}>
-                <RadioButtonCheckedIcon />
-                <span className="ms-3">Add Record</span>
-              </button>
-            </li>
-            <li>
-              <Link to="/login" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <ExitToAppIcon />
-                <span className="ms-3">Sign out</span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </aside>
+     <aside 
+      id="logo-sidebar" 
+      style={{ backgroundColor: '#03091E', color: '#B3B3B3' }} 
+      className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200 dark:border-gray-700"
+      >
+  <div className="h-full px-3 pb-4 overflow-y-auto" style={{ backgroundColor: '#03091E' }}>
+    <ul className="space-y-2 font-medium">
+      <li>
+        <button 
+          onClick={() => setActivePage("dashboard")}
+          className={`flex w-full items-center p-2 rounded-lg group ${
+            activePage === "dashboard" ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
+          }`}>
+          <DashboardIcon />
+          <span className="ms-3">Dashboard</span>
+        </button>
+      </li>
+      <li>
+        <button 
+          onClick={() => setActivePage("tickets")}
+          className={`flex w-full items-center p-2 rounded-lg group ${
+            activePage === "tickets" ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
+          }`}>
+          <ConfirmationNumberIcon />
+          <span className="ms-3">All Tickets</span>
+        </button>
+      </li>
+      <li>
+        <button 
+          onClick={() => setActivePage("manager")}
+          className={`flex w-full items-center p-2 rounded-lg group ${
+            activePage === "manager" ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
+          }`}>
+          <ManageAccountsIcon />
+          <span className="ms-3">Add Manager</span>
+          
+        </button>
+      </li>
+      <li>
+        <button 
+          onClick={() => setActivePage("records")}
+          className={`flex w-full items-center p-2 rounded-lg group ${
+            activePage === "records" ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
+          }`}>
+          <RadioButtonCheckedIcon />
+          <span className="ms-3">Add Record</span>
+        </button>
+      </li>
+      <li>
+      <Link 
+        to="/login" 
+        className={`flex items-center p-2 rounded-lg group ${
+          activePage === "logout" ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
+        }`}
+        onClick={() => setActivePage("logout")}
+      >
+        <ExitToAppIcon />
+        <span className="ms-3">Sign out</span>
+      </Link>
+    </li>
+
+    </ul>
+  </div>
+</aside>
+
 
       {/* Main Content */}
       <div className="p-4 sm:ml-64">
@@ -97,14 +120,14 @@ export default function Home() {
           {activePage === "manager" && (
             <div>
               <h2 className="text-xl font-bold">Add Manager</h2>
-              <p>Add Manager.</p>
+              <Manager/>
             </div>
           )}
 
           {activePage === "records" && (
             <div>
               <h2 className="text-xl font-bold">Add Record</h2>
-              <p>Add Record.</p>
+              <Record/>
             </div>
           )}
 

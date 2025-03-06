@@ -17,7 +17,7 @@ export default function LandingPage() {
         </p>
 
         {/* Navigation buttons */}
-        <div className="mt-6 flex flex-col md:flex-row items-center gap-4">
+        <div className="mt-6 flex flex-col md:flex-row items-center gap-4 my-8" >
           <Link
             className="px-6 py-2 rounded-lg text-white transition duration-300 text-lg"
             style={{ background: 'linear-gradient(90deg, #0B76C2, #13D6D6)' }}
@@ -39,7 +39,7 @@ export default function LandingPage() {
       </div>
 
       {/* Image between sections */}
-      <div className="relative flex justify-center mt-12 md:mt-20">
+      <div className="relative flex justify-center ">
         <img
           src={dash}
           className="w-11/12 sm:w-3/4 md:w-1/2 lg:w-2/5 mx-auto absolute -top-20 md:-top-40 shadow-lg rounded-lg"
