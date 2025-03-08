@@ -15,7 +15,7 @@ import AddTicket from './Components/AddTicket/AddTicket';
 
 let routers = createBrowserRouter([
   {path:'' , element:<Layout/> , children:[
-    {index: true, element:<LandingPage/>},
+    {index: true, element:<Home/>},
     {path:'/home' , element:<Home/>},
     {path:'/profile' , element:<Profile/>},
     {path:'/navbar' , element:<Navbar/>},

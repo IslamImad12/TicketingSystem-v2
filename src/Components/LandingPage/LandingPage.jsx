@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import dash from '../../images/dash.png';
+// import Navbar from '../Navbar/Navbar';
 
 export default function LandingPage() {
   return (
     <>
-      {/* Main section with background */}
       <div className="relative bg-primary text-white py-5 pb-24 min-h-screen flex flex-col justify-center items-center bg-[radial-gradient(circle,_#081D66,_#03091E)] text-center px-4">
         <h1 className="text-3xl md:text-4xl font-bold mt-16 md:mt-24 leading-snug">
           Make your working process easier <br className="hidden md:block" /> with Your Ticket
