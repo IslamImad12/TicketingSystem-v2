@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PencilIcon, TrashIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { PencilIcon, TrashIcon, PlusIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const initialManagers = [
@@ -23,60 +23,68 @@ export default function Manager() {
   };
 
   return (
-    <div className="p-6 mx-auto">
-      <div className="bg-white p-6 shadow-lg rounded-lg mb-6 flex items-center gap-4">
-        <input
-          type="text"
-          placeholder="Search managers..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="border p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-300"
-        />
-        <select
-          className="border p-2 rounded-lg"
-          value={itemsPerPage}
-          onChange={(e) => setItemsPerPage(Number(e.target.value))}
-        >
-          {[managers.length, 25, 50, 100].map(size => (
-            <option key={size} value={size}>{size}</option>
-          ))}
-        </select>
-        <Link
-          to='/NewManager' 
-          className="text-white px-4 py-3 rounded-lg flex items-center gap-2"
-          style={{ backgroundColor: '#03091E' }}
-        >
-          <PlusIcon className="w-5 h-5" /> Add New
-        </Link>
+    <div className="p-6 mx-auto max-w-5xl">
+      <h2 className="text-2xl font-bold mb-4">All Managers</h2>
+
+      <div className="flex flex-wrap items-center justify-between bg-white p-4 shadow-md rounded-xl mb-6">
+        <div className="relative w-96">
+          <MagnifyingGlassIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search managers..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="border pl-10 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-300"
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <select
+            className="border p-2 rounded-lg"
+            value={itemsPerPage}
+            onChange={(e) => setItemsPerPage(Number(e.target.value))}
+          >
+            {[managers.length, 25, 50, 100].map(size => (
+              <option key={size} value={size}>{size}</option>
+            ))}
+          </select>
+          <Link to='/NewManager' className="text-white bg-black px-4 py-2 rounded-lg flex items-center gap-2">
+            <PlusIcon className="w-5 h-5" /> Add New
+          </Link>
+        </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse shadow-lg rounded-lg overflow-hidden">
-          <thead className="text-white" style={{ backgroundColor: '#03091E' }}>
+      <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-300">
+        <table className="w-full text-left">
+          <thead className="bg-white border-b">
             <tr>
-              <th className="p-3 text-left">Name</th>
-              <th className="p-3 text-left">Email</th>
-              <th className="p-3 text-left">Phone</th>
-              <th className="p-3 text-left">Department</th>
-              <th className="p-3 text-left">Actions</th>
+              {['NAME', 'EMAIL', 'PHONE', 'DEPARTMENT', 'ACTIONS'].map(header => (
+                <th key={header} className="p-4 text-gray-700 font-semibold">{header}</th>
+              ))}
             </tr>
           </thead>
-          <tbody className="bg-white">
-            {filteredManagers.slice(0, itemsPerPage).map(manager => (
-              <tr key={manager.key} className="border-b transition duration-300 hover:bg-gray-100">
-                <td className="p-3">{manager.name}</td>
-                <td className="p-3">{manager.email}</td>
-                <td className="p-3">{manager.phone}</td>
-                <td className="p-3">{manager.department}</td>
-                <td className="p-3 flex gap-2">
+          <tbody>
+            {filteredManagers.slice(0, itemsPerPage).map(({ key, name, email, phone, department }) => (
+              <tr key={key} className="border-b hover:bg-gray-50">
+                <td className="p-4 flex items-center gap-3">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/50.jpg"
+                    alt="User"
+                    className="w-8 h-8 rounded-full border"
+                  />
+                  <div>
+                    <p className="font-medium">{name}</p>
+                    <p className="text-sm text-gray-500">{department}</p>
+                  </div>
+                </td>
+                <td className="p-4">{email}</td>
+                <td className="p-4">{phone}</td>
+                <td className="p-4">{department}</td>
+                <td className="p-4 flex gap-2">
+                  <button className="text-red-500 hover:text-red-600 transition" onClick={() => deleteManager(key)}>
+                    <TrashIcon className="w-5 h-5" />
+                  </button>
                   <button className="text-yellow-500 hover:text-yellow-600 transition">
                     <PencilIcon className="w-5 h-5" />
-                  </button>
-                  <button 
-                    className="text-red-500 hover:text-red-600 transition"
-                    onClick={() => deleteManager(manager.key)}
-                  >
-                    <TrashIcon className="w-5 h-5" />
                   </button>
                 </td>
               </tr>

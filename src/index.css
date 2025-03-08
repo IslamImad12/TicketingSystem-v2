@@ -93,3 +93,6 @@ code {
   background-repeat: no-repeat;
   z-index: -1;
 } */
+.tableZ {
+  border: 2px solid red;
+}

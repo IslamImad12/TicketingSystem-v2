@@ -2,6 +2,7 @@ import { useState } from "react";
 // import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Link } from "react-router-dom";
 import ReplyIcon from '@mui/icons-material/Reply';
+import Navbar from "../Navbar/Navbar";
 
 export default function AddTicket() {
     const [activePage, setActivePage] = useState("dashboard");
@@ -12,7 +13,7 @@ export default function AddTicket() {
         <aside 
           id="logo-sidebar" 
           style={{ backgroundColor: '#03091E', color: '#B3B3B3' }} 
-          className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200"
+          className="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200"
         >
           <div className="h-full px-3 pb-4 overflow-y-auto" style={{ backgroundColor: '#03091E' }}>
             <ul className="space-y-2 font-medium">
@@ -36,6 +37,9 @@ export default function AddTicket() {
             <h1 className="text-2xl font-bold mb-6">Create New</h1>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
+                  <div>
+                                <Navbar/>
+                              </div>
                 <label className="block text-sm font-medium text-gray-700">First Name</label>
                 <input type="text" className="mt-1 block w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-300" />
               </div>
