@@ -9,7 +9,8 @@ import Tickets from "../Tickets/Tickets";
 import Record from "../Record/Record";
 import Manager from "../Manager/Manager";
 import Logo from "../../images/logotext.png";
-import Navbar from '../Navbar/Navbar'
+import Navbar from "../Navbar/Navbar";
+import DashboardPage from "../DashboardPage/DashboardPage";
 
 export default function Home() {
   const [activePage, setActivePage] = useState("dashboard");
@@ -24,10 +25,8 @@ export default function Home() {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <aside
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-5 bg-[#03091E] text-[#B3B3B3] border-r border-gray-700 sm:translate-x-0"
-      >
-        <div className="h-full px-3 pb-4 overflow-y-auto flex flex-col justify-between ">
+      <aside className="fixed top-0 left-0 z-40 w-64 h-screen pt-5 bg-[#03091E] text-[#B3B3B3] border-r border-gray-700 sm:translate-x-0">
+        <div className="h-full px-3 pb-4 overflow-y-auto flex flex-col justify-between">
           <div>
             <img src={Logo} className="w-50 mb-6" alt="Logo" />
             <ul className="space-y-2 font-medium">
@@ -36,9 +35,7 @@ export default function Home() {
                   <button
                     onClick={() => setActivePage(item.id)}
                     className={`flex w-full items-center p-2 rounded-lg transition ${
-                      activePage === item.id
-                        ? "bg-[#051754] text-white"
-                        : "hover:bg-[#051754]"
+                      activePage === item.id ? "bg-[#051754] text-white" : "hover:bg-[#051754]"
                     }`}
                   >
                     {item.icon}
@@ -64,30 +61,9 @@ export default function Home() {
       </aside>
       {/* Main Content */}
       <main className="sm:ml-64 w-full">
-              <div>
-                <Navbar/>
-              </div>
-        <div className="p-8  mt-14">
-          {/*  */}
-          {activePage === "dashboard" && (
-            <div>
-              <h2 className="text-xl font-bold">Dashboard</h2>
-              <div className="grid grid-cols-4 gap-4 mt-4">
-                {[
-                  { label: "New Tickets", count: 20 },
-                  { label: "Open Tickets", count: 14 },
-                  { label: "Closed Tickets", count: 6 },
-                  { label: "Unassigned Tickets", count: 0 },
-                ].map((item, index) => (
-                  <div key={index} className="bg-white rounded-lg shadow-lg p-4 text-center">
-                    <span className="text-lg font-semibold">{item.label}</span>
-                    <span className="block text-2xl font-bold">{item.count}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
+        <Navbar />
+        <div className="p-8 mt-14">
+          {activePage === "dashboard" && <DashboardPage />}
           {activePage === "tickets" && <Tickets />}
           {activePage === "manager" && <Manager />}
           {activePage === "records" && <Record />}
