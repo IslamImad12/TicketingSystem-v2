@@ -6,7 +6,7 @@ const DashboardPage = () => {
     { label: "All tickets", value: 10, percentage: 100 },
     { label: "Open tickets", value: 7, percentage: 70 },
     { label: "Closed tickets", value: 3, percentage: 30 },
-    { label: "Users", value: 6, percentage: 30 },
+    { label: "Users", value: 6, percentage: 60 },
   ];
 
   const barData = [
@@ -34,8 +34,8 @@ const DashboardPage = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
 
-      {/* الاحصائيات مع الدوائر */}
-      <div className="grid grid-cols-4 gap-4">
+      {/* الإحصائيات مع الدوائر */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center relative">
             <h3 className="text-lg font-semibold">{stat.label}</h3>
@@ -64,10 +64,10 @@ const DashboardPage = () => {
       </div>
 
       {/* المخططات */}
-      <div className="grid grid-cols-2 gap-4 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         <div className="bg-white p-4 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-2">Daily Respond</h3>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={250}>
             <BarChart data={barData}>
               <XAxis dataKey="name" />
               <YAxis />
@@ -79,7 +79,7 @@ const DashboardPage = () => {
 
         <div className="bg-white p-4 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-2">Annual Tickets Average</h3>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={250}>
             <LineChart data={lineData}>
               <XAxis dataKey="year" />
               <YAxis />
@@ -94,9 +94,8 @@ const DashboardPage = () => {
       {/* جدول التذاكر الحديثة */}
       <div className="bg-white p-4 rounded-lg shadow-md mt-6">
         <h3 className="text-lg font-semibold mb-2">Recent Tickets</h3>
-        <Tickets/>
+        <Tickets />
       </div>
-
     </div>
   );
 };
